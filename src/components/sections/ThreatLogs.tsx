@@ -122,13 +122,13 @@ export function ThreatLogs() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Threat Logs</h1>
-          <p className="text-muted-foreground">Security incident history and analysis</p>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Threat Logs</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">Security incident history and analysis</p>
         </div>
-        <Button onClick={exportLogs} variant="outline" className="flex items-center space-x-2">
+        <Button onClick={exportLogs} variant="outline" className="flex items-center space-x-2 w-full sm:w-auto">
           <Download className="h-4 w-4" />
           <span>Export CSV</span>
         </Button>
@@ -143,7 +143,7 @@ export function ThreatLogs() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
@@ -179,7 +179,7 @@ export function ThreatLogs() {
               </SelectContent>
             </Select>
 
-            <Button variant="outline" className="flex items-center space-x-2">
+            <Button variant="outline" className="flex items-center space-x-2 w-full sm:w-auto">
               <Calendar className="h-4 w-4" />
               <span>Date Range</span>
             </Button>
@@ -188,7 +188,7 @@ export function ThreatLogs() {
       </Card>
 
       {/* Statistics */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {[
           { label: 'Total Threats', value: mockLogs.length, color: 'text-primary' },
           { label: 'Blocked', value: mockLogs.filter(l => l.status === 'Blocked').length, color: 'text-destructive' },
@@ -216,26 +216,28 @@ export function ThreatLogs() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="rounded-md border">
+          <div className="rounded-md border overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>ID</TableHead>
-                  <TableHead>Timestamp</TableHead>
-                  <TableHead>Sender</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Severity</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Confidence</TableHead>
+                  <TableHead className="min-w-[80px]">ID</TableHead>
+                  <TableHead className="min-w-[140px]">Timestamp</TableHead>
+                  <TableHead className="min-w-[200px]">Sender</TableHead>
+                  <TableHead className="min-w-[80px]">Type</TableHead>
+                  <TableHead className="min-w-[80px]">Severity</TableHead>
+                  <TableHead className="min-w-[100px]">Status</TableHead>
+                  <TableHead className="min-w-[100px]">Confidence</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {filteredLogs.map((log) => (
                   <TableRow key={log.id}>
-                    <TableCell className="font-mono text-sm">{log.id}</TableCell>
-                    <TableCell className="text-sm">{log.timestamp}</TableCell>
-                    <TableCell className="text-sm font-mono truncate max-w-[200px]">
-                      {log.sender}
+                    <TableCell className="font-mono text-xs sm:text-sm">{log.id}</TableCell>
+                    <TableCell className="text-xs sm:text-sm">{log.timestamp}</TableCell>
+                    <TableCell className="text-xs sm:text-sm font-mono">
+                      <div className="truncate max-w-[150px] sm:max-w-[200px]" title={log.sender}>
+                        {log.sender}
+                      </div>
                     </TableCell>
                     <TableCell>
                       <Badge variant="outline">{log.type}</Badge>

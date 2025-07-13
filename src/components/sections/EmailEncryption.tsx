@@ -147,13 +147,13 @@ JKG4Q8DaF6mW9J8K3QGH2cJF8aB9OgQ+YqJ7CQKKd7DzQ9F8vHJ4BgKqd7Q8CnGl
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Secure Email Encryption</h1>
-        <p className="text-muted-foreground">RSA public-key cryptography for secure email communication</p>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Secure Email Encryption</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">RSA public-key cryptography for secure email communication</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Key Generation */}
         <Card className="cyber-card">
           <CardHeader>
@@ -190,11 +190,12 @@ JKG4Q8DaF6mW9J8K3QGH2cJF8aB9OgQ+YqJ7CQKKd7DzQ9F8vHJ4BgKqd7Q8CnGl
                   ✓ RSA-2048 Keys Generated
                 </Badge>
                 
-                <div className="flex space-x-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <Button 
                     variant="outline" 
                     size="sm"
                     onClick={() => downloadKey(keyPair.publicKey, 'public_key.pem')}
+                    className="w-full sm:w-auto"
                   >
                     <FileDown className="h-3 w-3 mr-1" />
                     Public Key
@@ -203,6 +204,7 @@ JKG4Q8DaF6mW9J8K3QGH2cJF8aB9OgQ+YqJ7CQKKd7DzQ9F8vHJ4BgKqd7Q8CnGl
                     variant="outline" 
                     size="sm"
                     onClick={() => downloadKey(keyPair.privateKey, 'private_key.pem')}
+                    className="w-full sm:w-auto"
                   >
                     <FileDown className="h-3 w-3 mr-1" />
                     Private Key
@@ -346,7 +348,7 @@ JKG4Q8DaF6mW9J8K3QGH2cJF8aB9OgQ+YqJ7CQKKd7DzQ9F8vHJ4BgKqd7Q8CnGl
                     Copy
                   </Button>
                 </div>
-                <pre className="p-4 bg-muted rounded text-xs overflow-x-auto">
+                <pre className="p-2 sm:p-4 bg-muted rounded text-xs overflow-x-auto whitespace-pre-wrap break-all">
                   {keyPair.publicKey}
                 </pre>
               </TabsContent>
@@ -363,7 +365,7 @@ JKG4Q8DaF6mW9J8K3QGH2cJF8aB9OgQ+YqJ7CQKKd7DzQ9F8vHJ4BgKqd7Q8CnGl
                     Copy
                   </Button>
                 </div>
-                <pre className="p-4 bg-muted rounded text-xs overflow-x-auto">
+                <pre className="p-2 sm:p-4 bg-muted rounded text-xs overflow-x-auto whitespace-pre-wrap break-all">
                   {keyPair.privateKey}
                 </pre>
               </TabsContent>

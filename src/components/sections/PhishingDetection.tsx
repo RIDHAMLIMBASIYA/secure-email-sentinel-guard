@@ -98,15 +98,15 @@ export function PhishingDetection() {
   ]
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Phishing Detection System</h1>
-        <p className="text-muted-foreground">AI-powered email analysis for threat detection</p>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Phishing Detection System</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">AI-powered email analysis for threat detection</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6">
         {/* Input Section */}
-        <div className="lg:col-span-2">
+        <div className="xl:col-span-2">
           <Card className="cyber-card">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
@@ -118,7 +118,7 @@ export function PhishingDetection() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex space-x-2">
+              <div className="flex flex-wrap gap-2">
                 <Button 
                   variant="outline" 
                   size="sm"
@@ -126,7 +126,7 @@ export function PhishingDetection() {
                   className="flex items-center space-x-2"
                 >
                   <Clipboard className="h-4 w-4" />
-                  <span>Paste</span>
+                  <span className="hidden sm:inline">Paste</span>
                 </Button>
                 {sampleEmails.map((sample, index) => (
                   <Button 
@@ -134,6 +134,7 @@ export function PhishingDetection() {
                     variant="outline" 
                     size="sm"
                     onClick={() => setEmailContent(sample.content)}
+                    className="text-xs sm:text-sm"
                   >
                     {sample.title}
                   </Button>
@@ -147,11 +148,11 @@ export function PhishingDetection() {
                 className="min-h-[200px] font-mono text-sm"
               />
               
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Button 
                   onClick={analyzeEmail}
                   disabled={isAnalyzing}
-                  className="cyber-button"
+                  className="cyber-button w-full sm:w-auto"
                 >
                   {isAnalyzing ? (
                     <>

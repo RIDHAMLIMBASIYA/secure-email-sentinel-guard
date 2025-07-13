@@ -11,7 +11,7 @@ export function Header({ onMenuClick }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 h-14 sm:h-16 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Button
             variant="ghost"
@@ -27,7 +27,7 @@ export function Header({ onMenuClick }: HeaderProps) {
               <Shield className="h-6 w-6 text-white" />
             </div>
             <div className="flex flex-col">
-              <h1 className="text-xl font-bold text-foreground">
+              <h1 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-foreground">
                 NSM Platform
               </h1>
               <p className="text-xs text-muted-foreground hidden sm:block">
@@ -37,10 +37,10 @@ export function Header({ onMenuClick }: HeaderProps) {
           </div>
         </div>
 
-        <div className="flex items-center space-x-4">
-          <div className="hidden md:flex items-center space-x-2 px-3 py-1 bg-muted rounded-full">
-            <Activity className="h-4 w-4 text-success animate-pulse" />
-            <span className="text-sm font-medium text-foreground">System Active</span>
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="hidden lg:flex items-center space-x-2 px-2 sm:px-3 py-1 bg-muted rounded-full">
+            <Activity className="h-3 w-3 sm:h-4 sm:w-4 text-success animate-pulse" />
+            <span className="text-xs sm:text-sm font-medium text-foreground">System Active</span>
           </div>
           
           <Button

@@ -43,8 +43,10 @@ const Index = () => {
             onClose={() => setSidebarOpen(false)}
           />
           
-          <main className="flex-1 p-6 md:ml-0">
-            {renderContent()}
+          <main className="flex-1 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 2xl:p-16">
+            <div className="max-w-7xl mx-auto">
+              {renderContent()}
+            </div>
           </main>
         </div>
       </div>
@@ -61,7 +63,7 @@ function SettingsSection() {
         <p className="text-muted-foreground">System configuration and preferences</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6">
         <Card className="cyber-card">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">

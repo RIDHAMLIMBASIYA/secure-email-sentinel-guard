@@ -52,10 +52,10 @@ export function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Security Dashboard</h1>
-          <p className="text-muted-foreground">Real-time network security monitoring and analytics</p>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Security Dashboard</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">Real-time network security monitoring and analytics</p>
         </div>
         <div className="flex items-center space-x-2">
           <Activity className="h-4 w-4 text-success animate-pulse" />
@@ -64,7 +64,7 @@ export function Dashboard() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {stats.map((stat, index) => (
           <Card key={index} className="cyber-card hover:cyber-glow">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -86,7 +86,7 @@ export function Dashboard() {
       </div>
 
       {/* Recent Threats */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6">
         <Card className="cyber-card">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
@@ -98,17 +98,17 @@ export function Dashboard() {
           <CardContent>
             <div className="space-y-4">
               {recentThreats.map((threat) => (
-                <div key={threat.id} className="flex items-center justify-between p-3 bg-muted rounded-lg">
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-2 mb-1">
-                      <span className="font-medium text-foreground">{threat.type}</span>
+                <div key={threat.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-muted rounded-lg gap-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <span className="font-medium text-foreground text-sm">{threat.type}</span>
                       <Badge className={getSeverityColor(threat.severity)}>
                         {threat.severity}
                       </Badge>
                     </div>
                     <p className="text-xs text-muted-foreground truncate">{threat.source}</p>
                   </div>
-                  <span className="text-xs text-muted-foreground">{threat.time}</span>
+                  <span className="text-xs text-muted-foreground shrink-0">{threat.time}</span>
                 </div>
               ))}
             </div>
@@ -132,12 +132,12 @@ export function Dashboard() {
                 { name: "Threat Intelligence", status: "Active", uptime: "99.8%" },
                 { name: "Real-time Scanning", status: "Active", uptime: "99.9%" }
               ].map((service, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                <div key={index} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-muted rounded-lg gap-2">
                   <div className="flex items-center space-x-3">
                     <div className="threat-indicator bg-success"></div>
-                    <span className="font-medium text-foreground">{service.name}</span>
+                    <span className="font-medium text-foreground text-sm">{service.name}</span>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left sm:text-right">
                     <div className="text-sm text-success font-medium">{service.status}</div>
                     <div className="text-xs text-muted-foreground">{service.uptime}</div>
                   </div>
